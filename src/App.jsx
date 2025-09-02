@@ -1,23 +1,25 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Settings from "lucide-react/lib/icons/settings";
-import ShieldAlert from "lucide-react/lib/icons/shield-alert";
-import HeartHandshake from "lucide-react/lib/icons/heart-handshake";
-import Download from "lucide-react/lib/icons/download";
-import Upload from "lucide-react/lib/icons/upload";
-import Trash2 from "lucide-react/lib/icons/trash-2";
-import Send from "lucide-react/lib/icons/send";
-import Save from "lucide-react/lib/icons/save";
-import KeyRound from "lucide-react/lib/icons/key-round";
-import Notebook from "lucide-react/lib/icons/notebook";
-import Brain from "lucide-react/lib/icons/brain";
-import Sparkles from "lucide-react/lib/icons/sparkles";
-import Users from "lucide-react/lib/icons/users";
-import Info from "lucide-react/lib/icons/info";
-import Lock from "lucide-react/lib/icons/lock";
-import Moon from "lucide-react/lib/icons/moon";
-import Sun from "lucide-react/lib/icons/sun";
-import BarChart3 from "lucide-react/lib/icons/bar-chart-3";
+import {
+  Settings,
+  ShieldAlert,
+  HeartHandshake,
+  Download,
+  Upload,
+  Trash2,
+  Send,
+  Save,
+  Key,
+  Notebook,
+  Brain,
+  Sparkles,
+  Users,
+  Info,
+  Lock,
+  Moon,
+  Sun,
+  BarChart3
+} from "lucide-react";
 
 const STORAGE_KEYS = {
   MESSAGES: "groq_therapy_messages",
