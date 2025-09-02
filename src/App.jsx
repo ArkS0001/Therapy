@@ -12,7 +12,7 @@ import {
   Key,
   Notebook,
   Brain,
-  Sparkles,
+  Star,
   Users,
   Info,
   Lock,
