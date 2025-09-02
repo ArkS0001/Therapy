@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Settings, ShieldAlert, HeartHandshake, Download, Upload, Trash2, Send, Save, KeyRound, NotebookPen, Brain, Sparkles, Users, Info, Lock, Moon, Sun, BarChart3 } from "lucide-react";
+import { Settings, ShieldAlert, HeartHandshake, Download, Upload, Trash2, Send, Save, KeyRound, Notebook, Brain, Sparkles, Users, Info, Lock, Moon, Sun, BarChart3 } from "lucide-react";
 
 const STORAGE_KEYS = {
   MESSAGES: "groq_therapy_messages",
@@ -260,7 +260,7 @@ export default function TherapyApp() {
           <nav className="grid gap-2">
             <TabButton icon={<Brain className="w-4 h-4"/>} label="Chat" active={tab === "chat"} onClick={() => setTab("chat")} />
             <TabButton icon={<Users className="w-4 h-4"/>} label="Intake" active={tab === "intake"} onClick={() => setTab("intake")} />
-            <TabButton icon={<NotebookPen className="w-4 h-4"/>} label="Journal" active={tab === "journal"} onClick={() => setTab("journal")} />
+            <TabButton icon={<Notebook className="w-4 h-4"/>} label="Journal" active={tab === "journal"} onClick={() => setTab("journal")} />
             <TabButton icon={<BarChart3 className="w-4 h-4"/>} label="Insights" active={tab === "insights"} onClick={() => setTab("insights")} />
             <TabButton icon={<Settings className="w-4 h-4"/>} label="Settings" active={tab === "settings"} onClick={() => setTab("settings")} />
           </nav>
@@ -352,7 +352,7 @@ export default function TherapyApp() {
 
             {tab === "journal" && (
               <motion.div key="journal" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="grid gap-4">
-                <Card title="Quick Journaling" icon={<NotebookPen className="w-4 h-4"/>}>
+                <Card title="Quick Journaling" icon={<Notebook className="w-4 h-4"/>}>
                   <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">Try a prompt: "What’s one small thing I can do today to feel 5% better?"</p>
                   <textarea rows={8} placeholder="Write freely…" className="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2" onChange={(e)=>{
                     const content = `Journal — ${new Date().toLocaleString()}:\n${e.target.value}`;
