@@ -394,28 +394,48 @@ export default function TherapyApp() {
               </motion.div>
             )}
 
-            {tab === "settings" && (
-              <motion.div key="settings" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="grid gap-4">
-                <Card title="Connection" icon={<Lock className="w-4 h-4"/>}>
-                  <div className="grid md:grid-cols-2 gap-3 items-end">
-                    <Field label="Use secure proxy (recommended)">
-                      <select value={String(settings.useProxy)} onChange={(e)=> setSettings({ ...settings, useProxy: e.target.value === "true" })} className="w-full rounded-xl border px-3 py-2 bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700">
-                        <option value="true">Yes — call /api/groq</option>
-                        <option value="false">No — direct (dev only)</option>
-                      </select>
-                    </Field>
-                    <Field label="Groq API Key (stored locally if provided)">
-                     <div className="flex items-center gap-2">
-                        <span className="w-4 h-4 inline-block opacity-70">🔑</span>
-                        <input
-                          type="password"
-                          placeholder="sk-..."
-                          value={settings.apiKey}
-                          onChange={(e) => setSettings({ ...settings, apiKey: e.target.value })}
-                          className="flex-1 rounded-xl border px-3 py-2 bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700"
-                        />
-                      </div>
-                </Card>
+{tab === "settings" && (
+  <motion.div
+    key="settings"
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -8 }}
+    className="grid gap-4"
+  >
+    <Card title="Connection" icon={<Lock className="w-4 h-4" />}>
+      <div className="grid md:grid-cols-2 gap-3 items-end">
+        <Field label="Use secure proxy (recommended)">
+          <select
+            value={String(settings.useProxy)}
+            onChange={(e) =>
+              setSettings({ ...settings, useProxy: e.target.value === "true" })
+            }
+            className="w-full rounded-xl border px-3 py-2 bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700"
+          >
+            <option value="true">Yes — call /api/groq</option>
+            <option value="false">No — direct (dev only)</option>
+          </select>
+        </Field>
+
+        <Field label="Groq API Key (stored locally if provided)">
+          <div className="flex items-center gap-2">
+            <span className="w-4 h-4 inline-block opacity-70">🔑</span>
+            <input
+              type="password"
+              placeholder="sk-..."
+              value={settings.apiKey}
+              onChange={(e) =>
+                setSettings({ ...settings, apiKey: e.target.value })
+              }
+              className="flex-1 rounded-xl border px-3 py-2 bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700"
+            />
+          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            Never commit or deploy client-side keys. Use serverless proxy for production.
+          </p>
+        </Field>
+      </div>
+    </Card>
 
                 <Card title="Model & Generation" icon={<Brain className="w-4 h-4"/>}>
                   <div className="grid md:grid-cols-4 gap-3">
