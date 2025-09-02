@@ -405,13 +405,16 @@ export default function TherapyApp() {
                       </select>
                     </Field>
                     <Field label="Groq API Key (stored locally if provided)">
-                      <div className="flex items-center gap-2">
-                        <KeyRound className="w-4 h-4 opacity-70"/>
-                        <input type="password" placeholder="sk-..." value={settings.apiKey} onChange={(e)=> setSettings({ ...settings, apiKey: e.target.value })} className="flex-1 rounded-xl border px-3 py-2 bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700"/>
+                     <div className="flex items-center gap-2">
+                        <span className="w-4 h-4 inline-block opacity-70">🔑</span>
+                        <input
+                          type="password"
+                          placeholder="sk-..."
+                          value={settings.apiKey}
+                          onChange={(e) => setSettings({ ...settings, apiKey: e.target.value })}
+                          className="flex-1 rounded-xl border px-3 py-2 bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700"
+                        />
                       </div>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Never commit or deploy client-side keys. Use serverless proxy for production.</p>
-                    </Field>
-                  </div>
                 </Card>
 
                 <Card title="Model & Generation" icon={<Brain className="w-4 h-4"/>}>
